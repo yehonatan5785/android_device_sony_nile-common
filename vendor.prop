@@ -116,9 +116,9 @@ ro.fastbootd.available=true
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Graphics
-debug.egl.hw=1
+debug.egl.hw=0
 debug.sf.enable_hwc_vds=1
-debug.sf.hw=1
+debug.sf.hw=0
 dev.pm.dyn_samplingrate=1
 persist.sys.wfd.virtual=0
 ro.hardware.egl=adreno
