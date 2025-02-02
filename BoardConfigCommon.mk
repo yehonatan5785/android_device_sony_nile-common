@@ -202,6 +202,9 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 # Verified Boot
 BOARD_AVB_ENABLE := false
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
