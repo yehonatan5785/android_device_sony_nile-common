@@ -44,8 +44,8 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 # Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi xxxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -186,6 +186,24 @@ PRODUCT_PACKAGES += \
     gralloc.sdm660 \
     hwcomposer.qcom \
     vendor.qti.hardware.memtrack-service
+
+# Display Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.egl.force_msaa=4
+
+# Conditional VSYNC
+ifeq ($(TARGET_SUPPORTS_90HZ),true)
+PRODUCT_PROPERTY_OVERRIDES += debug.egl.swapinterval=0
+else
+PRODUCT_PROPERTY_OVERRIDES += debug.egl.swapinterval=1
+endif
+
+# Hardware Acceleration
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.ui.hw=true \
+    ro.config.ignore_hw_accel=com.legacy.app1,com.legacy.app2
 
 # DRM
 PRODUCT_PACKAGES += \
