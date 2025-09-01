@@ -20,6 +20,9 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/sony/nile-common/nile-common-vendor.mk)
 
+# Enforce VINTF kernel requirements to resolve UFFD GC detection
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
